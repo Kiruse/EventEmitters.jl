@@ -1,4 +1,3 @@
-"Abstraction for events."
 module EventEmitters
 
 struct Ident{T} end

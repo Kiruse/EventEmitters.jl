@@ -1,4 +1,4 @@
-@doc """# EventEmitters.jl
+# EventEmitters.jl
 `EventEmitter` is an object-oriented event dispatcher with a set of macros.
 
 There are generally two ways to work with `EventEmitter`s:
@@ -87,5 +87,3 @@ The `@event` macro is virtual, i.e. it does not actually exist. It is only valid
 
 ## License
 Licensed under MIT. Copyright © Kiruse 2023.
-
-""" EventEmitters
