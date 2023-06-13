@@ -5,6 +5,7 @@ using EventEmitters: dispatch, eventnames
 @eventemitter struct Foo
   @event bar
   @event baz
+  @event boink
 end
 
 @testset "EventEmitters" begin
@@ -63,7 +64,7 @@ end
   
   @testset "Macros" begin
     let foo = Foo()
-      @test Set(eventnames(foo)) == Set((:bar, :baz))
+      @test Set(eventnames(foo)) == Set((:bar, :baz, :boink))
       
       called_bar = false
       @on foo.bar() do event
@@ -77,9 +78,17 @@ end
         called_baz = event.args[:count]
       end
       
+      called_boink = 0
+      @once foo.boink() do event
+        @test event.name == :boink
+        called_boink += 1
+      end
+      
       @dispatch foo.bar
       @dispatch foo.baz count=42
-      @test called_bar && called_baz == 42
+      @dispatch foo.boink
+      @dispatch foo.boink
+      @test called_bar && called_baz == 42 && called_boink == 1
     end
   end
 end
