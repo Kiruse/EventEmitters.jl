@@ -1,0 +1,4 @@
+name = "EventEmitters"
+uuid = "cd26c9f8-45a4-41bb-95ac-b558150e631b"
+authors = ["kiruse <26940742+Kiruse@users.noreply.github.com>"]
+version = "0.1.0"
